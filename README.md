@@ -12,7 +12,8 @@
 
 "MENTOR": NEELA SANTHOSH
 
-"DESCRIPTION":Penetration Testing Toolkit
+"DESCRIPTION": TASK 3:Penetration Testing Toolkit
+
 This project is a modular Penetration Testing Toolkit developed using HTML, CSS, JavaScript, and Python (Flask) in Visual Studio Code. The toolkit is designed to simulate common penetration testing techniques such as Port Scanning and Brute Force Attacks through an interactive web interface.
 
 The frontend (index.html) allows users to input a target host or username, which is then sent to the Python backend (app.py) using JavaScript’s fetch() API. The backend handles logic for both tools using custom Python modules located in the scanner/ directory.
@@ -30,3 +31,4 @@ Editor: Visual Studio Code
 
 "OUTPUT":
 
+![Image](https://github.com/user-attachments/assets/878873ea-be0a-4c81-b2f9-beda0f2d7344)
