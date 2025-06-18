@@ -1,0 +1,39 @@
+function runPortScan() {
+  const host = document.getElementById('host').value;
+  fetch('/scan_ports', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `host=${encodeURIComponent(host)}`
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('portResult').innerHTML =
+      `<p>Open Ports: ${data.open_ports.join(', ')}</p>`;
+  })
+  .catch(error => {
+    document.getElementById('portResult').innerHTML =
+      `<p class="fail">Error: ${error}</p>`;
+    console.error("Scan Ports Error:", error);
+  });
+}
+
+function runBruteForce() {
+  const username = document.getElementById('username').value;
+  fetch('/brute_force', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `username=${encodeURIComponent(username)}`
+  })
+  .then(res => res.json())
+  .then(data => {
+    let output = data.success
+      ? `<p class="success">Login Success! Password: ${data.password}</p>`
+      : `<p class="fail">Login Failed. Tried: ${data.attempts.join(', ')}</p>`;
+    document.getElementById('bruteResult').innerHTML = output;
+  })
+  .catch(error => {
+    document.getElementById('bruteResult').innerHTML =
+      `<p class="fail">Error: ${error}</p>`;
+    console.error("Brute Force Error:", error);
+  });
+}
